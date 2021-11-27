@@ -1,9 +1,21 @@
-//
-//  SecondScreenViewController.swift
-//  TodoListApp
-//
-//  Created by Owner on 2021-11-13.
-//
+/*
+ *Program Name: Todo List App
+ *Date Last Modified: 13/11/2021
+ *Description: A simple Todo list app to add, edit and delete basic tasks.
+ *Revision History: Added navigation controls as well fixed build and run error.
+ *Author: Justice Ekeke
+ *Student ID: 301160908
+ *Date: November 13, 2021
+ *
+ *Author: Shrijan Karki
+ *Student ID: 301222636
+ *Date: November 13, 2021
+ *
+ *Author: Basil Farooq
+ *Student ID: 301201128
+ *Date: November 13, 2021
+ *
+ */
 
 import UIKit
 

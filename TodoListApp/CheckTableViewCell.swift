@@ -7,18 +7,31 @@
 
 import UIKit
 
+protocol CheckTableViewCellDelegate: AnyObject{
+    func checkTableViewCell(_ cell: CheckTableViewCell, didChangeCheckedState checked: Bool )
+}
+
 class CheckTableViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     
     @IBOutlet weak var checkswitch: UISwitch!
     
-    @IBAction func checked(_ sender: UISwitch) {
+    weak var delegate: CheckTableViewCellDelegate?
+    
+    @IBAction func checked(_ sender: UISwitch)
+    {
         updateChecked()
+        delegate?.checkTableViewCell(self, didChangeCheckedState: checkswitch.isOn) 
     }
     
-    func set(title: String, checked:Bool){
+    func set(title: String, checked:Bool)
+    {
         label.text = title
+        set(checked: checked)
+    }
+    
+    func set(checked:Bool){
         checkswitch.isOn = checked
         updateChecked()
     }
