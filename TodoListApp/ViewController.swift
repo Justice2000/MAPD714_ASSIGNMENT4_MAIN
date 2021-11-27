@@ -59,6 +59,15 @@ class ViewController: UIViewController, UITableViewDataSource
            
            return cell
     }
+    
+    //swipe delete function connected to swipe delegate function
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            //deletes data along with row in list
+            todos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
        
 
 }
@@ -82,6 +91,11 @@ extension ViewController: UITableViewDelegate
         
         return UISwipeActionsConfiguration(actions: [action])
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+      }
+    
 }
 
 extension ViewController: CheckTableViewCellDelegate
