@@ -16,6 +16,7 @@
 		CF1E9BCE273F58F20040680F /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E9BCD273F58F20040680F /* Todo.swift */; };
 		CF1E9BD0273F62730040680F /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E9BCF273F62730040680F /* CheckTableViewCell.swift */; };
 		CF1E9BD2274077400040680F /* SecondScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E9BD1274077400040680F /* SecondScreenViewController.swift */; };
+		CFC77C4D275347A00038540B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC77C4C275347A00038540B /* TodoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CF1E9BCD273F58F20040680F /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		CF1E9BCF273F62730040680F /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
 		CF1E9BD1274077400040680F /* SecondScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenViewController.swift; sourceTree = "<group>"; };
+		CFC77C4C275347A00038540B /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				CF1E9BB9273F45400040680F /* AppDelegate.swift */,
 				CF1E9BBB273F45400040680F /* SceneDelegate.swift */,
 				CF1E9BBD273F45400040680F /* ViewController.swift */,
+				CFC77C4C275347A00038540B /* TodoViewController.swift */,
 				CF1E9BD1274077400040680F /* SecondScreenViewController.swift */,
 				CF1E9BCF273F62730040680F /* CheckTableViewCell.swift */,
 				CF1E9BCD273F58F20040680F /* Todo.swift */,
@@ -149,6 +152,7 @@
 			files = (
 				CF1E9BD2274077400040680F /* SecondScreenViewController.swift in Sources */,
 				CF1E9BBE273F45400040680F /* ViewController.swift in Sources */,
+				CFC77C4D275347A00038540B /* TodoViewController.swift in Sources */,
 				CF1E9BD0273F62730040680F /* CheckTableViewCell.swift in Sources */,
 				CF1E9BBA273F45400040680F /* AppDelegate.swift in Sources */,
 				CF1E9BBC273F45400040680F /* SceneDelegate.swift in Sources */,

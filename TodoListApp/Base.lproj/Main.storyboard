@@ -8,6 +8,68 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Todo View Controller-->
+        <scene sceneID="yuP-B2-eyP">
+            <objects>
+                <viewController id="am3-Wf-LdJ" customClass="TodoViewController" customModule="TodoListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9PM-Ip-GNN">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DYZ-aR-hdN">
+                                <rect key="frame" x="16" y="76" width="358" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNR-kg-kXr">
+                                <rect key="frame" x="331" y="0.0" width="43" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.down.doc" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="save:" destination="am3-Wf-LdJ" eventType="touchUpInside" id="Dmm-oY-zr9"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="O47-u7-xbh">
+                                <rect key="frame" x="35" y="198" width="320" height="216"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOB-Ng-ASe">
+                                <rect key="frame" x="81" y="140" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RWw-rQ-3Bc">
+                                <rect key="frame" x="236" y="135" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9k0-wz-UvM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RWw-rQ-3Bc" firstAttribute="leading" secondItem="UOB-Ng-ASe" secondAttribute="trailing" constant="79" id="46o-iK-k7c"/>
+                            <constraint firstItem="eNR-kg-kXr" firstAttribute="top" secondItem="9k0-wz-UvM" secondAttribute="top" id="7Z6-eK-z1F"/>
+                            <constraint firstItem="DYZ-aR-hdN" firstAttribute="top" secondItem="eNR-kg-kXr" secondAttribute="bottom" constant="45" id="COl-TF-VXB"/>
+                            <constraint firstItem="RWw-rQ-3Bc" firstAttribute="top" secondItem="DYZ-aR-hdN" secondAttribute="bottom" constant="25" id="ErR-GX-wiY"/>
+                            <constraint firstItem="UOB-Ng-ASe" firstAttribute="top" secondItem="DYZ-aR-hdN" secondAttribute="bottom" constant="30" id="GtY-8N-9YG"/>
+                            <constraint firstItem="O47-u7-xbh" firstAttribute="top" secondItem="RWw-rQ-3Bc" secondAttribute="bottom" constant="32" id="HnH-F8-vBr"/>
+                            <constraint firstItem="UOB-Ng-ASe" firstAttribute="leading" secondItem="9k0-wz-UvM" secondAttribute="leading" constant="81" id="JPq-VA-GbU"/>
+                            <constraint firstItem="9k0-wz-UvM" firstAttribute="trailing" secondItem="eNR-kg-kXr" secondAttribute="trailing" constant="16" id="Pau-2H-t6r"/>
+                            <constraint firstItem="DYZ-aR-hdN" firstAttribute="leading" secondItem="9k0-wz-UvM" secondAttribute="leading" constant="16" id="eJu-FU-KDy"/>
+                            <constraint firstItem="9k0-wz-UvM" firstAttribute="trailing" secondItem="DYZ-aR-hdN" secondAttribute="trailing" constant="16" id="gGy-nx-owD"/>
+                            <constraint firstItem="9k0-wz-UvM" firstAttribute="trailing" secondItem="RWw-rQ-3Bc" secondAttribute="trailing" constant="105" id="nPi-GP-HYs"/>
+                            <constraint firstItem="O47-u7-xbh" firstAttribute="centerX" secondItem="9PM-Ip-GNN" secondAttribute="centerX" id="pZk-AM-Vud"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="n8t-ZG-HNa"/>
+                    <connections>
+                        <outlet property="datePicker" destination="O47-u7-xbh" id="Mu8-wU-3Aa"/>
+                        <outlet property="hasDuedate" destination="RWw-rQ-3Bc" id="bbd-EC-Se4"/>
+                        <outlet property="textfield" destination="DYZ-aR-hdN" id="GAg-sN-nyL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YA3-1M-G11" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1805" y="-591"/>
+        </scene>
         <!--TODO LIST-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -86,7 +148,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="TODO LIST" id="D9D-sn-c6R">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="XcP-uc-qxN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="XcP-uc-qxN">
+                            <connections>
+                                <segue destination="am3-Wf-LdJ" kind="popoverPresentation" destinationCreationSelector="todoViewcontroller:" popoverAnchorBarButtonItem="XcP-uc-qxN" id="qfB-hr-4q6">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="6zH-No-Nyh" id="Ry8-Dx-ynK"/>
@@ -264,6 +332,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="pencil.slash" catalog="system" width="128" height="113"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>

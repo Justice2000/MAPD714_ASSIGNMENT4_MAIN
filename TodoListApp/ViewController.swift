@@ -21,24 +21,33 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource
 {
-    
+    //temporary todo list Datasource
     var todos =
     [
-        Todo(title: "Name of the people that i would like to see eat fish in a shopping store like"),
-        Todo(title: "Name2"),
-        Todo(title: "Name3")
-        
+        Todo(title: "Clean bag"),
+        Todo(title: "clean room" ),
+        Todo(title: "Buy groceries")
     ]
     
     @IBOutlet weak var tableView: UITableView!
     
    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-
+    //link newtodo list item to main viewController
+    @IBSegueAction func todoViewcontroller(_ coder: NSCoder) -> TodoViewController?
+    {
+        let vc = TodoViewController(coder: coder)
+        
+        vc?.delegate = self
+        
+        return vc
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         
@@ -74,6 +83,7 @@ class ViewController: UIViewController, UITableViewDataSource
 
 extension ViewController: UITableViewDelegate
 {
+    //swipe complete function
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal, title: "Complete"){ action, view, complete in
             
@@ -92,9 +102,11 @@ extension ViewController: UITableViewDelegate
         return UISwipeActionsConfiguration(actions: [action])
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    //swipe delete fuction
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle
+    {
         return .delete
-      }
+    }
     
 }
 
@@ -106,9 +118,21 @@ extension ViewController: CheckTableViewCellDelegate
             return
         }
         let todo = todos[indexPath.row]
-        let newTodo = Todo(title: todo.title, isComplete: checked)
+        let newTodo = Todo(title: todo.title, /*dueDate: todo.dueDate,*/ isComplete: checked)
         
         todos[indexPath.row] = newTodo
     }
 }
 
+extension ViewController: TodoViewControllerDelegate
+{
+    func todoViewController(_ vc: TodoViewController, didSaveTodo todo: Todo)
+    {
+        
+        dismiss(animated: true)
+        {
+            self.todos.append(todo)
+            self.tableView.insertRows(at: [IndexPath(row: self.todos.count-1, section: 0)], with: .automatic)
+        }
+    }
+}
