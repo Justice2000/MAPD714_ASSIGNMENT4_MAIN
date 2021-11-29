@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 protocol TodoViewControllerDelegate: AnyObject
 {
@@ -14,6 +15,7 @@ protocol TodoViewControllerDelegate: AnyObject
 
 class TodoViewController: UIViewController
 {
+    private let database = Database.database().reference()
 
     @IBOutlet weak var textfield: UITextField!
     var todo: Todo?
@@ -33,6 +35,8 @@ class TodoViewController: UIViewController
     @IBAction func save(_ sender: Any)
     {
         let todo = Todo(title: textfield.text!)//, dueDate: datePicker.date)
+        database.child(textfield.text!).setValue(hasDuedate.isOn)
+        
         delegate?.todoViewController(self, didSaveTodo: todo)
     }
     
