@@ -84,14 +84,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="checked cell" id="SQs-9t-ieY" customClass="CheckTableViewCell" customModule="TodoListApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SQs-9t-ieY" id="qHS-jq-dic">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ln-8E-kux">
-                                                    <rect key="frame" x="268" y="6.0000000000000018" width="51" height="31.666666666666671"/>
+                                                    <rect key="frame" x="268" y="6" width="51" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="31.670000000000002" id="Qaj-vX-506"/>
                                                         <constraint firstAttribute="width" constant="49" id="nIs-RW-zKw"/>
@@ -101,7 +101,7 @@
                                                     </connections>
                                                 </switch>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BT9-cu-AS4">
-                                                    <rect key="frame" x="345" y="0.0" width="45" height="43.666666666666664"/>
+                                                    <rect key="frame" x="345" y="0.0" width="45" height="43.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43.329999999999998" id="EW0-Ys-Zfu"/>
                                                         <constraint firstAttribute="width" constant="45" id="Ebs-n1-dVS"/>
@@ -113,7 +113,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKv-Et-cOY">
-                                                    <rect key="frame" x="20" y="11.000000000000002" width="233" height="21.666666666666671"/>
+                                                    <rect key="frame" x="20" y="11" width="233" height="22"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

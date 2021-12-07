@@ -72,44 +72,75 @@ class ViewController: UIViewController, UITableViewDataSource
            return cell
     }
     
-    //swipe delete function connected to swipe delegate function
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            //deletes data along with row in list
-            todos.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
-    }
+//    //swipe delete function connected to swipe delegate function
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+//    {
+//        if editingStyle == .delete
+//        {
+//            //deletes data along with row in list
+//            todos.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//        }
+//    }
        
 
 }
 
 extension ViewController: UITableViewDelegate
 {
-    //swipe complete function
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .normal, title: "Complete"){ action, view, complete in
+    
+//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+//    {
+//        let completeAction = UIContextualAction(style: .normal, title: "Complete")
+//        {
+//            action, view, complete in
+//
+//            let todo = self.todos[indexPath.row].completToggled()
+//            self.todos[indexPath.row] = todo
+//
+//            let cell = tableView.cellForRow(at: indexPath) as! CheckTableViewCell
+//            cell.set(checked: todo.isComplete)
+//
+//            complete(true)
+//
+//        }
+//
+//        completeAction.backgroundColor = .systemBlue
+//
+//        return UISwipeActionsConfiguration(actions: [completeAction])
+//    }
+    
+    
+    
+    //swipe custom functions for complete and delete
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
+    {
+        let completeAction = UITableViewRowAction(style: .normal, title: "Complete")
+        {
+            view, complete in
             
             let todo = self.todos[indexPath.row].completToggled()
             self.todos[indexPath.row] = todo
             
             let cell = tableView.cellForRow(at: indexPath) as! CheckTableViewCell
             cell.set(checked: todo.isComplete)
-                  
-            complete(true)
-                  
             
-            print("complete")
         }
         
-        return UISwipeActionsConfiguration(actions: [action])
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete")
+        {
+            view, delete in
+            //deletes data along with row in list
+            self.todos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        }
+        
+        completeAction.backgroundColor = .systemYellow
+        
+        return [deleteAction,completeAction]
     }
     
-    //swipe delete fuction
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle
-    {
-        return .delete
-    }
     
 }
 

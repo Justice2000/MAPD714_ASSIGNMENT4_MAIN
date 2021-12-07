@@ -31,12 +31,14 @@ class CheckTableViewCell: UITableViewCell {
         set(checked: checked)
     }
     
-    func set(checked:Bool){
+    func set(checked:Bool)
+    {
         checkswitch.isOn = checked
         updateChecked()
     }
     
-    private func updateChecked(){
+    private func updateChecked()
+    {
         let attributedstring = NSMutableAttributedString(string: label.text!)
         
         if checkswitch.isOn{
