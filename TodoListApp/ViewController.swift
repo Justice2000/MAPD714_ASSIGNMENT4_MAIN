@@ -86,6 +86,7 @@ extension ViewController: UITableViewDelegate
     //Edit swipe function from leading
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
+        
         let editAction = UIContextualAction(style: .normal, title: "Edit")
         {
             action, view, edit in
@@ -116,6 +117,7 @@ extension ViewController: UITableViewDelegate
     //swipe custom functions for complete and delete
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
     {
+        //completion swipe
         let completeAction = UITableViewRowAction(style: .normal, title: "Complete")
         {
             view, complete in
@@ -128,6 +130,7 @@ extension ViewController: UITableViewDelegate
             
         }
         
+        //deletion swipe
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete")
         {
             view, delete in
