@@ -11,19 +11,19 @@ struct Todo
 {
     let title: String
     let isComplete: Bool
-    //let dueDate: Date
+    let dueDate: Date
     let hasDuedate: Bool
     
-    init(title: String, /*dueDate: Date,*/ isComplete: Bool = false, hasDuedate: Bool = false)
+    init(title: String, dueDate: Date, isComplete: Bool = false, hasDuedate: Bool = false)
     {
         self.title = title
         self.isComplete = isComplete
         self.hasDuedate = hasDuedate
-        //self.dueDate = dueDate
+        self.dueDate = dueDate
     }
     
     func completToggled() -> Todo
     {
-        return Todo(title: title, /*dueDate: dueDate,*/ isComplete: !isComplete, hasDuedate: !hasDuedate)
+        return Todo(title: title, dueDate: dueDate, isComplete: !isComplete, hasDuedate: !hasDuedate)
     }
 }

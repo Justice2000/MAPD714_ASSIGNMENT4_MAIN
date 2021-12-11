@@ -27,9 +27,9 @@ class ViewController: UIViewController, UITableViewDataSource
     //temporary todo list Datasource
     var todos =
     [
-        Todo(title: "Clean bag"),
-        Todo(title: "clean room" ),
-        Todo(title: "Buy groceries")
+        Todo(title: "Clean bag", dueDate: Date()),
+        Todo(title: "clean room", dueDate: Date()),
+        Todo(title: "Buy groceries", dueDate: Date())
     ]
     
     @IBOutlet weak var tableView: UITableView!
@@ -51,6 +51,12 @@ class ViewController: UIViewController, UITableViewDataSource
         return vc
     }
     
+    @IBSegueAction func editViewcontroller(_ coder: NSCoder) -> SecondScreenViewController?
+    {
+        return SecondScreenViewController(coder: coder)
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         
@@ -71,44 +77,39 @@ class ViewController: UIViewController, UITableViewDataSource
            
            return cell
     }
-    
-//    //swipe delete function connected to swipe delegate function
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
-//    {
-//        if editingStyle == .delete
-//        {
-//            //deletes data along with row in list
-//            todos.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//        }
-//    }
        
 
 }
 
 extension ViewController: UITableViewDelegate
 {
-    
-//    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-//    {
-//        let completeAction = UIContextualAction(style: .normal, title: "Complete")
-//        {
-//            action, view, complete in
-//
-//            let todo = self.todos[indexPath.row].completToggled()
-//            self.todos[indexPath.row] = todo
-//
-//            let cell = tableView.cellForRow(at: indexPath) as! CheckTableViewCell
-//            cell.set(checked: todo.isComplete)
-//
-//            complete(true)
-//
-//        }
-//
-//        completeAction.backgroundColor = .systemBlue
-//
-//        return UISwipeActionsConfiguration(actions: [completeAction])
-//    }
+    //Edit swipe function from leading
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let editAction = UIContextualAction(style: .normal, title: "Edit")
+        {
+            action, view, edit in
+            
+            let editProfilePage = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "editscreen") as! SecondScreenViewController
+            [22:38]
+            
+            let transition:CATransition = CATransition()
+                    transition.duration = 0.5
+                    transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+                    transition.type = .push
+                    transition.subtype = .fromLeft
+
+            //adding transition to navigation controller
+            self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+            
+            self.navigationController?.pushViewController(editProfilePage, animated: true)
+
+        }
+
+        editAction.backgroundColor = .systemBlue
+
+        return UISwipeActionsConfiguration(actions: [editAction])
+    }
     
     
     
@@ -152,7 +153,7 @@ extension ViewController: CheckTableViewCellDelegate
             return
         }
         let todo = todos[indexPath.row]
-        let newTodo = Todo(title: todo.title, /*dueDate: todo.dueDate,*/ isComplete: checked)
+        let newTodo = Todo(title: todo.title, dueDate: todo.dueDate, isComplete: checked)
         
         todos[indexPath.row] = newTodo
     }
